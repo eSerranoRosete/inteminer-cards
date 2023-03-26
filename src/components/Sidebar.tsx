@@ -1,4 +1,4 @@
-import type { IFMenuItem } from "./../lib/AppTypes";
+import type { IFMenuItem } from "../context/AppTypes";
 import { MenuItem } from "./MenuItem";
 
 interface IFProps {
@@ -12,6 +12,7 @@ export const Sidebar = ({ menuItems, currentActive, onSelect }: IFProps) => {
     <div className="min-h-screen w-full max-w-xs bg-stone-100 p-4">
       {menuItems.map((item, i) => (
         <MenuItem
+          key={i}
           label={item.name}
           onClick={() => onSelect(item.alias)}
           active={currentActive === item.alias}
